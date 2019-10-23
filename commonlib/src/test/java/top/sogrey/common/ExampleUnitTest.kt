@@ -1,4 +1,4 @@
-package top.sogrey.commonlib
+package top.sogrey.common
 
 import org.junit.Test
 
