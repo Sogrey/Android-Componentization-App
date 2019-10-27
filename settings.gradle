@@ -1,2 +1,2 @@
-include ':app', ':commonlib'
+include ':app', ':lib_common'
 rootProject.name='Android-Componentization-App'

@@ -1,3 +1,0 @@
-Android封装Retrofit2+OkHttp3+RxJava网络请求
-
-https://www.jianshu.com/p/e49cf500306e
