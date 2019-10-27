@@ -5,10 +5,7 @@ package top.sogrey.common;
  * @author Sogrey
  * @date 2019/10/26
  */
-public class AppConfig {
-    private AppConfig() {
-        throw new UnsupportedOperationException(this.getClass().getSimpleName() + " cannot be instantiated");
-    }
+public interface AppConfig {
     /**
      * 是否debug
      */

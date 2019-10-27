@@ -38,6 +38,9 @@ dependencies {
     implementation "org.jetbrains.anko:anko-sqlite:$anko_version"
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1'
 
+    //ARoute
+    api rootProject.ext.dependencies["arouter-api"]
+
     implementation rootProject.ext.dependencies["core-ktx"]
 
     testImplementation rootProject.ext.dependencies["junit"]

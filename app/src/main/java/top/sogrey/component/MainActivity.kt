@@ -1,10 +1,10 @@
 package top.sogrey.component
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import top.sogrey.common.utils.LogKtUtils
-import top.sogrey.common.utils.ktx.setSP
-import top.sogrey.common.utils.logE
+import androidx.appcompat.app.AppCompatActivity
+import com.alibaba.android.arouter.launcher.ARouter
+import kotlinx.android.synthetic.main.activity_main.*
+import top.sogrey.common.utils.startIntent
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,6 +12,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        ARouter.getInstance().inject(this)
 
+        button.setOnClickListener {
+//            ARouter.getInstance().build("/test/TestActivity").navigation()
+            startIntent(top.sogrey.component.test.TestActivity::class.java)
+        }
+        button2.setOnClickListener {
+            ARouter.getInstance().build("/center/CenterMainActivity").navigation()
+//            startIntent(top.sogrey.component.center.CenterMainActivity::class.java)
+        }
     }
 }

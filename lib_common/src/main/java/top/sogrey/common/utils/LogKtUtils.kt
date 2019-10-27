@@ -119,7 +119,7 @@ open class LogKtUtils {
         private fun buildMessage(message: String): String {
             val traceElements = Thread.currentThread().stackTrace
 
-            if (traceElements == null || traceElements.size < 4) {
+            if (traceElements.size < 4) {
                 return message
             }
             val traceElement = traceElements[4]
