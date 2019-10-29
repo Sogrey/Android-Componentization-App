@@ -19,25 +19,36 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
-        <activity android:name=".SchameFilterActivity">
-            <!-- Schame -->
-            <intent-filter>
-                <data
-                    android:host="m.aliyun.com"
-                    android:scheme="arouter"/>
-
-                <action android:name="android.intent.action.VIEW"/>
-
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-            </intent-filter>
-        </activity>
-        <activity android:name=".test.TestActivity" >
-        </activity>
 
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
+
+        <!--兼容android 7.0 通过FileProvider在应用间共享文件-->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="top.sogrey.component.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name=".SchameFilterActivity">
+            <!-- Schame -->
+            <intent-filter>
+                <data
+                    android:host="top.sogrey"
+                    android:scheme="arouter" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".test.TestActivity"></activity>
 
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -6,6 +6,9 @@ package top.sogrey.common.utils
  * Created by Sogrey on 2018/12/29.
  */
 class RegUtils {
+    constructor(){
+
+    }
     companion object {
         val REG_HTTP =
             """(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?"""

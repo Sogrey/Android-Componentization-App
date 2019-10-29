@@ -22,7 +22,7 @@ open class ShareFileUtils {
      * @param context
      * @param path
      */
-    fun shareUrl(context: Context, path: String,title:String="分享") {
+    fun shareUrl(context: Context, path: String, title: String = "分享") {
         if (TextUtils.isEmpty(path)) {
             return
         }
@@ -41,7 +41,7 @@ open class ShareFileUtils {
      * @param context
      * @param path
      */
-    fun shareFile(context: Context, path: String,title:String="分享") {
+    fun shareFile(context: Context, path: String, title: String = "分享") {
         if (TextUtils.isEmpty(path)) {
             return
         }
@@ -107,7 +107,13 @@ open class ShareFileUtils {
             context.toast("您还没有安装微信")
             return
         }
-        shareImage(context, path, null, "com.tencent.mm", "com.tencent.mm.ui.tools.ShareToTimeLineUI")
+        shareImage(
+            context,
+            path,
+            null,
+            "com.tencent.mm",
+            "com.tencent.mm.ui.tools.ShareToTimeLineUI"
+        )
     }
 
     /**
@@ -118,7 +124,13 @@ open class ShareFileUtils {
             context.toast("您还没有安装微信")
             return
         }
-        shareImage(context, null, pathList, "com.tencent.mm", "com.tencent.mm.ui.tools.ShareToTimeLineUI")
+        shareImage(
+            context,
+            null,
+            pathList,
+            "com.tencent.mm",
+            "com.tencent.mm.ui.tools.ShareToTimeLineUI"
+        )
     }
 
     /**
@@ -129,7 +141,13 @@ open class ShareFileUtils {
             context.toast("您还没有安装QQ")
             return
         }
-        shareImage(context, path, null, "com.tencent.mobileqq", "com.tencent.mobileqq.activity.JumpActivity")
+        shareImage(
+            context,
+            path,
+            null,
+            "com.tencent.mobileqq",
+            "com.tencent.mobileqq.activity.JumpActivity"
+        )
     }
 
 
@@ -141,7 +159,13 @@ open class ShareFileUtils {
             context.toast("您还没有安装QQ")
             return
         }
-        shareImage(context, null, pathList, "com.tencent.mobileqq", "com.tencent.mobileqq.activity.JumpActivity")
+        shareImage(
+            context,
+            null,
+            pathList,
+            "com.tencent.mobileqq",
+            "com.tencent.mobileqq.activity.JumpActivity"
+        )
     }
 
 
@@ -153,7 +177,13 @@ open class ShareFileUtils {
             context.toast("您还没有安装QQ空间")
             return
         }
-        shareImage(context, path, null, "com.qzone", "com.qzonex.module.operation.ui.QZonePublishMoodActivity")
+        shareImage(
+            context,
+            path,
+            null,
+            "com.qzone",
+            "com.qzonex.module.operation.ui.QZonePublishMoodActivity"
+        )
     }
 
 
@@ -165,7 +195,13 @@ open class ShareFileUtils {
             context.toast("您还没有安装QQ空间")
             return
         }
-        shareImage(context, null, pathList, "com.qzone", "com.qzonex.module.operation.ui.QZonePublishMoodActivity")
+        shareImage(
+            context,
+            null,
+            pathList,
+            "com.qzone",
+            "com.qzonex.module.operation.ui.QZonePublishMoodActivity"
+        )
     }
 
     /**
@@ -190,6 +226,7 @@ open class ShareFileUtils {
         }
         shareImage(context, null, pathList, "com.sina.weibo", "com.sina.weibo.EditActivity")
     }
+
     /**
      * 分享前必须执行本代码，主要用于兼容SDK18以上的系统
      */
@@ -208,7 +245,13 @@ open class ShareFileUtils {
      * @param pkg      分享到的指定app的包名
      * @param cls      分享到的页面（微博不需要指定页面）
      */
-    private fun shareImage(context: Context, path: String?, pathList: List<String>?, pkg: String?, cls: String?) {
+    private fun shareImage(
+        context: Context,
+        path: String?,
+        pathList: List<String>?,
+        pkg: String?,
+        cls: String?
+    ) {
         if (path == null && pathList == null) {
             context.toast("找不到您要分享的图片文件")
             return

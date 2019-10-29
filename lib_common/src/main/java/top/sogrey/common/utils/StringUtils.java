@@ -221,7 +221,7 @@ public class StringUtils {
      */
     public static String getString(@StringRes int id) {
         try {
-            return AppUtils.getApp().getResources().getString(id);
+            return AppUtils.Companion.getApp().getResources().getString(id);
         } catch (Resources.NotFoundException ignore) {
             return "";
         }
@@ -236,7 +236,7 @@ public class StringUtils {
      */
     public static String getString(@StringRes int id, Object... formatArgs) {
         try {
-            return AppUtils.getApp().getString(id, formatArgs);
+            return AppUtils.Companion.getApp().getString(id, formatArgs);
         } catch (Resources.NotFoundException ignore) {
             return "";
         }
@@ -250,7 +250,7 @@ public class StringUtils {
      */
     public static String[] getStringArray(@ArrayRes int id) {
         try {
-            return AppUtils.getApp().getResources().getStringArray(id);
+            return AppUtils.Companion.getApp().getResources().getStringArray(id);
         } catch (Resources.NotFoundException ignore) {
             return new String[0];
         }

@@ -1,10 +1,16 @@
 package top.sogrey.common.utils
 
+import android.content.Context
 import android.graphics.*
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
+import android.os.Build
 import android.view.View
+import androidx.core.content.FileProvider
+import top.sogrey.common.compatible.FileProvider7
 import java.io.ByteArrayOutputStream
+import java.io.File
 
 /**
  * 类型转换
@@ -176,5 +182,25 @@ open class ConvertUtils {
             val fontScale = AppUtils.getApp().resources.displayMetrics.scaledDensity
             return (pxValue / fontScale + 0.5f).toInt()
         }
+
+
+        /**
+         * 文件路径转Uri
+         * @param context 上下文
+         * @param filePath 文件路径
+         * @return 文件Uri:content://xxx
+         */
+        fun path2Uri(context: Context, filePath: String): Uri {
+            val file = File(filePath)
+            return file2Uri(context, file)
+        }
+
+        /**
+         * 文件转Uri,(兼容android 7.0)
+         * @param context 上下文
+         * @param file 文件
+         * @return 文件Uri:content://xxx
+         */
+        fun file2Uri(context: Context, file: File): Uri = FileProvider7.getUriForFile(context, file)
     }
 }
