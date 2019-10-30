@@ -55,8 +55,7 @@ fun Context.getSP(key: String, defaultObject: Any): Any? {
         "Boolean" -> sp.getBoolean(key, defaultObject as Boolean)
         "Float" -> sp.getFloat(key, defaultObject as Float)
         "Long" -> sp.getLong(key, defaultObject as Long)
-        else -> {
-        }
+        else -> null
     }
 }
 

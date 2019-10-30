@@ -6,7 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".test.TestActivity">
 
-    <ImageView android:id="@+id/imgTest"
+<!--    <top.sogrey.common.views.CustomImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp" android:visibility="gone"
+        app:bord="@drawable/ic_launcher_background"
+        app:dsc="@drawable/ic_launcher_foreground"
+        app:hasBord="true"
+        app:layout_constraintBottom_toTopOf="@id/imgTest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />-->
+
+    <top.sogrey.common.views.PrettyImageView
+        android:id="@+id/circle_iv2"
+        android:layout_width="140dp" app:layout_constraintBottom_toTopOf="@id/imgTest"
+        android:layout_height="140dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher"
+        app:border_color="#e0e0e0"
+        app:border_width="2dp"
+        app:circle_dot_color="#ff0000"
+        app:circle_dot_radius="7dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:left_bottom_radiusX="40dp"
+        app:left_bottom_radiusY="40dp"
+        app:left_top_radiusX="10dp"
+        app:left_top_radiusY="40dp"
+        app:right_bottom_radiusX="40dp"
+        app:right_bottom_radiusY="40dp"
+        app:right_top_radiusX="10dp"
+        app:right_top_radiusY="40dp"
+        app:shape_type="SHAPE_ROUND"
+        app:show_border="false"
+        app:show_circle_dot="false"/>
+
+    <ImageView
+        android:id="@+id/imgTest"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:src="@mipmap/ic_launcher"
@@ -21,6 +62,8 @@
         android:text="Test Activity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.706" />
 </androidx.constraintlayout.widget.ConstraintLayout>

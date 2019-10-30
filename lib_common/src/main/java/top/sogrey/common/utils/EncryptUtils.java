@@ -28,11 +28,14 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
 /**
- * 加解密相关
+ * description:加解密相关
+ * <p/>
+ *
  * @author Sogrey
- * @date 2019/10/26
+ * @date 2019-10-30 12:25
  */
 public class EncryptUtils {
+
     private EncryptUtils() {
         throw new UnsupportedOperationException(this.getClass().getSimpleName() + " cannot be instantiated");
     }

@@ -2,6 +2,7 @@ package top.sogrey.common.views
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
 
 interface IBaseView {
     //用来初始化view视图
