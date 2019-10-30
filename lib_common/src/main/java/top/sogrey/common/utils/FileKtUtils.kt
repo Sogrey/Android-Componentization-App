@@ -115,6 +115,6 @@ class FileKtUtils {
  * @param file 文件
  * @return 文件Uri
  */
-fun File.getUriForFile(): Uri {
+fun File.getUri(): Uri {
     return FileProvider7.getUriForFile(AppUtils.getApp(), this)
 }
