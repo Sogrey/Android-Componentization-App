@@ -4,8 +4,13 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
+import android.net.Uri
+import android.os.Build
+import androidx.core.content.FileProvider
+import top.sogrey.common.compatible.FileProvider7
 import top.sogrey.common.utils.ConvertUtils
 import top.sogrey.common.utils.logD
+import java.io.File
 
 //Context ktx 扩展
 
@@ -59,4 +64,15 @@ fun Context.getAppIconDrawable(): Drawable {
  */
 fun Context.getAppIconBitmap(): Bitmap {
    return ConvertUtils.drawable2Bitmap(getAppIconDrawable())
+}
+
+
+
+/**
+ * 获取文件Uri,兼容android 7.0
+ * @param file 文件
+ * @return 文件Uri
+ */
+fun Context.getUriForFile(file: File): Uri {
+    return FileProvider7.getUriForFile(this,file)
 }

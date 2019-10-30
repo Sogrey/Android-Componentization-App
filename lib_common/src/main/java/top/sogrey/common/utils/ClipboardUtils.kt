@@ -5,7 +5,6 @@ import android.content.ClipboardManager
 import android.content.Context.CLIPBOARD_SERVICE
 import android.content.Intent
 import android.net.Uri
-import top.sogrey.common.utils.AppUtils.getApp
 
 
 /**
@@ -14,6 +13,9 @@ import top.sogrey.common.utils.AppUtils.getApp
  * @date 2019/10/26
  */
 open class ClipboardUtils {
+    constructor(){
+        throw UnsupportedOperationException(this.javaClass.simpleName + " cannot be instantiated")
+    }
     companion object {
         /**
          * 复制文本到剪贴板
@@ -21,7 +23,7 @@ open class ClipboardUtils {
          * @param text 文本
          */
         fun copyText(text: CharSequence) {
-            val cm = getApp().getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+            val cm = AppUtils.getApp().getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
             cm.setPrimaryClip(ClipData.newPlainText("text", text))
         }
 
@@ -31,11 +33,11 @@ open class ClipboardUtils {
          * @return 剪贴板的文本
          */
         fun getText(): CharSequence? {
-            val cm = getApp().getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+            val cm = AppUtils.getApp().getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
 
             val clip = cm.primaryClip
             return if (clip != null && clip.itemCount > 0) {
-                clip.getItemAt(0).coerceToText(getApp())
+                clip.getItemAt(0).coerceToText(AppUtils.getApp())
             } else null
         }
 
@@ -45,8 +47,8 @@ open class ClipboardUtils {
          * @param uri uri
          */
         fun copyUri(uri: Uri) {
-            val cm = getApp().getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
-            cm.setPrimaryClip(ClipData.newUri(getApp().contentResolver, "uri", uri))
+            val cm = AppUtils.getApp().getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+            cm.setPrimaryClip(ClipData.newUri(AppUtils.getApp().contentResolver, "uri", uri))
         }
 
         /**
@@ -55,7 +57,7 @@ open class ClipboardUtils {
          * @return 剪贴板的uri
          */
         fun getUri(): Uri? {
-            val cm = getApp().getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+            val cm = AppUtils.getApp().getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
             val clip = cm.primaryClip
             return if (clip != null && clip.itemCount > 0) {
                 clip.getItemAt(0).uri
@@ -68,7 +70,7 @@ open class ClipboardUtils {
          * @param intent 意图
          */
         fun copyIntent(intent: Intent) {
-            val cm = getApp().getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+            val cm = AppUtils.getApp().getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
             cm.setPrimaryClip(ClipData.newIntent("intent", intent))
         }
 
@@ -78,7 +80,7 @@ open class ClipboardUtils {
          * @return 剪贴板的意图
          */
         fun getIntent(): Intent? {
-            val cm = getApp().getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
+            val cm = AppUtils.getApp().getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
             val clip = cm.primaryClip
             return if (clip != null && clip.itemCount > 0) {
                 clip.getItemAt(0).intent
