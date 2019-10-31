@@ -30,7 +30,7 @@ class AppUtils {
     companion object{
 
         private val ACTIVITY_LIFECYCLE = ActivityLifecycleImpl()
-//        @SuppressLint("StaticFieldLeak")
+        @SuppressLint("StaticFieldLeak")
         private var sApplication: Application? = null
 
         /**
@@ -408,7 +408,7 @@ class AppUtils {
         fun isAppInstalled(appPackageName: String): Boolean {
             // 获取所有已安装程序的包信息
             val pinfos = getApp().packageManager.getInstalledApplications(0)
-            if (!pinfos.isEmpty()) {
+            if (pinfos.isNotEmpty()) {
                 for (info in pinfos) {
                     val packageName = info.packageName
                     if (packageName == appPackageName) {
@@ -562,7 +562,7 @@ class AppUtils {
 
         private fun getLaunchAppIntent(packageName: String, isNewTask: Boolean): Intent? {
             val launcherActivity = getLauncherActivity(packageName)
-            if (!launcherActivity.isEmpty()) {
+            if (launcherActivity.isNotEmpty()) {
                 val intent = Intent(Intent.ACTION_MAIN)
                 intent.addCategory(Intent.CATEGORY_LAUNCHER)
                 val cn = ComponentName(packageName, launcherActivity)
@@ -641,7 +641,7 @@ class AppUtils {
                     }
                     val usageStatsManager = getApp()
                         .getSystemService(Context.USAGE_STATS_SERVICE) as UsageStatsManager
-                    var usageStatsList: List<UsageStats>? = null
+                    var usageStatsList: List<UsageStats>?
                     val endTime = System.currentTimeMillis()
                     val beginTime = endTime - 86400000 * 7
                     usageStatsList = usageStatsManager

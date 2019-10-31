@@ -155,26 +155,74 @@ open class LogKtUtils {
     }
 }
 
-fun logE(msg: String, tag: String = AppConfig.APP_TAG) {
+fun logE(msg: String) {
+    if (AppConfig.DEBUG) Log.e(AppConfig.APP_TAG, msg)
+}
+
+fun logE(tag: String = AppConfig.APP_TAG, msg: String) {
     if (AppConfig.DEBUG) Log.e(tag, msg)
 }
 
-fun logW(msg: String, tag: String = AppConfig.APP_TAG) {
+fun logE(tag: String = AppConfig.APP_TAG, msg: String, e: Exception) {
+    if (AppConfig.DEBUG) Log.e(tag, msg, e)
+}
+
+fun logW(msg: String) {
+    if (AppConfig.DEBUG) Log.w(AppConfig.APP_TAG, msg)
+}
+
+fun logW(tag: String = AppConfig.APP_TAG, msg: String) {
     if (AppConfig.DEBUG) Log.w(tag, msg)
 }
 
-fun logI(msg: String, tag: String = AppConfig.APP_TAG) {
+fun logW(tag: String = AppConfig.APP_TAG, msg: String, e: Exception) {
+    if (AppConfig.DEBUG) Log.w(tag, msg, e)
+}
+
+fun logI(msg: String) {
+    if (AppConfig.DEBUG) Log.i(AppConfig.APP_TAG, msg)
+}
+
+fun logI(tag: String = AppConfig.APP_TAG, msg: String) {
     if (AppConfig.DEBUG) Log.i(tag, msg)
 }
 
-fun logD(msg: String, tag: String = AppConfig.APP_TAG) {
+fun logI(tag: String = AppConfig.APP_TAG, msg: String, e: Exception) {
+    if (AppConfig.DEBUG) Log.i(tag, msg, e)
+}
+
+fun logD(msg: String) {
+    if (AppConfig.DEBUG) Log.d(AppConfig.APP_TAG, msg)
+}
+
+fun logD(tag: String = AppConfig.APP_TAG, msg: String) {
     if (AppConfig.DEBUG) Log.d(tag, msg)
 }
 
-fun logV(msg: String, tag: String = AppConfig.APP_TAG) {
+fun logD(tag: String = AppConfig.APP_TAG, msg: String, e: Exception) {
+    if (AppConfig.DEBUG) Log.d(tag, msg, e)
+}
+
+fun logV(msg: String) {
+    if (AppConfig.DEBUG) Log.v(AppConfig.APP_TAG, msg)
+}
+
+fun logV(tag: String = AppConfig.APP_TAG, msg: String) {
     if (AppConfig.DEBUG) Log.v(tag, msg)
 }
 
-fun logWtf(msg: String, tag: String = AppConfig.APP_TAG) {
+fun logV(tag: String = AppConfig.APP_TAG, msg: String, e: Exception) {
+    if (AppConfig.DEBUG) Log.v(tag, msg, e)
+}
+
+fun logWtf(msg: String) {
+    if (AppConfig.DEBUG) Log.wtf(AppConfig.APP_TAG, msg)
+}
+
+fun logWtf(tag: String = AppConfig.APP_TAG, msg: String) {
     if (AppConfig.DEBUG) Log.wtf(tag, msg)
+}
+
+fun logWtf(tag: String = AppConfig.APP_TAG, msg: String, e: Exception) {
+    if (AppConfig.DEBUG) Log.wtf(tag, msg, e)
 }

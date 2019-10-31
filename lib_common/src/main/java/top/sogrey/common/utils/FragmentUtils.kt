@@ -16,36 +16,36 @@ import kotlin.collections.ArrayList
 /**
  * Fragment 相关<p/>
  *
-addFragment              : 新增fragment                      <br/>
-addFragments             : 新增多个fragment                  <br/>
-removeFragment           : 移除fragment                      <br/>
-removeToFragment         : 移除到指定fragment                        <br/>
-removeFragments          : 移除同级别fragment                        <br/>
-removeAllFragments       : 移除所有fragment                        <br/>
-replaceFragment          : 替换fragment                        <br/>
-popFragment              : 出栈fragment                        <br/>
-popToFragment            : 出栈到指定fragment                        <br/>
-popFragments             : 出栈同级别fragment                        <br/>
-popAllFragments          : 出栈所有fragment                        <br/>
-popAddFragment           : 先出栈后新增fragment                        <br/>
-hideFragment             : 隐藏fragment                        <br/>
-hideFragments            : 隐藏同级别fragment                        <br/>
-showFragment             : 显示fragment                        <br/>
-hideShowFragment         : 先隐藏后显示fragment                        <br/>
-getLastAddFragment       : 获取同级别最后加入的fragment                        <br/>
-getLastAddFragmentInStack: 获取栈中同级别最后加入的fragment                        <br/>
-getTopShowFragment       : 获取顶层可见fragment                        <br/>
-getTopShowFragmentInStack: 获取栈中顶层可见fragment                        <br/>
-getFragments             : 获取同级别fragment                        <br/>
-getFragmentsInStack      : 获取栈中同级别fragment                        <br/>
-getAllFragments          : 获取所有fragment                        <br/>
-getAllFragmentsInStack   : 获取栈中所有fragment                        <br/>
-getPreFragment           : 获取目标fragment的前一个fragment                        <br/>
-findFragment             : 查找fragment                        <br/>
-dispatchBackPress        : 处理fragment回退键                        <br/>
-setBackgroundColor       : 设置背景色                        <br/>
-setBackgroundResource    : 设置背景资源                        <br/>
-setBackground            : 设置背景                        <br/>
+    addFragment              : 新增fragment
+    addFragments             : 新增多个fragment
+    removeFragment           : 移除fragment
+    removeToFragment         : 移除到指定fragment
+    removeFragments          : 移除同级别fragment
+    removeAllFragments       : 移除所有fragment
+    replaceFragment          : 替换fragment
+    popFragment              : 出栈fragment
+    popToFragment            : 出栈到指定fragment
+    popFragments             : 出栈同级别fragment
+    popAllFragments          : 出栈所有fragment
+    popAddFragment           : 先出栈后新增fragment
+    hideFragment             : 隐藏fragment
+    hideFragments            : 隐藏同级别fragment
+    showFragment             : 显示fragment
+    hideShowFragment         : 先隐藏后显示fragment
+    getLastAddFragment       : 获取同级别最后加入的fragment
+    getLastAddFragmentInStack: 获取栈中同级别最后加入的fragment
+    getTopShowFragment       : 获取顶层可见fragment
+    getTopShowFragmentInStack: 获取栈中顶层可见fragment
+    getFragments             : 获取同级别fragment
+    getFragmentsInStack      : 获取栈中同级别fragment
+    getAllFragments          : 获取所有fragment
+    getAllFragmentsInStack   : 获取栈中所有fragment
+    getPreFragment           : 获取目标fragment的前一个fragment
+    findFragment             : 查找fragment
+    dispatchBackPress        : 处理fragment回退键
+    setBackgroundColor       : 设置背景色
+    setBackgroundResource    : 设置背景资源
+    setBackground            : 设置背景
  * <p/>
  * @author Sogrey
  * @date 2019-10-30 23:02
