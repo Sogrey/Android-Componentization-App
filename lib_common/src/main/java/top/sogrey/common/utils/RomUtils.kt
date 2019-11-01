@@ -373,12 +373,11 @@ class RomUtils {
         }
 
         private fun getSystemPropertyByShell(propName: String): String {
-            val line: String
             var input: BufferedReader? = null
             try {
                 val p = Runtime.getRuntime().exec("getprop $propName")
                 input = BufferedReader(InputStreamReader(p.inputStream), 1024)
-                val ret = input!!.readLine()
+                val ret = input.readLine()
                 if (ret != null) {
                     return ret
                 }
@@ -386,7 +385,7 @@ class RomUtils {
             } finally {
                 if (input != null) {
                     try {
-                        input!!.close()
+                        input.close()
                     } catch (ignore: IOException) {/**/
                     }
 

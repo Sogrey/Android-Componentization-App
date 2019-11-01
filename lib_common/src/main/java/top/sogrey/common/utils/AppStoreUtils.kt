@@ -74,12 +74,12 @@ class AppStoreUtils {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             val resolveInfos = AppUtils.getApp().packageManager
                 .queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
-            if (resolveInfos == null || resolveInfos!!.size == 0) {
+            if (resolveInfos.size == 0) {
                 logE(TAG, "No app store!")
                 return null
             }
             var googleIntent: Intent? = null
-            for (resolveInfo in resolveInfos!!) {
+            for (resolveInfo in resolveInfos) {
                 val pkgName = resolveInfo.activityInfo.packageName
                 if (GOOGLE_PLAY_APP_STORE_PACKAGE_NAME != pkgName) {
                     if (isAppSystem(pkgName)) {
@@ -95,7 +95,7 @@ class AppStoreUtils {
                 return googleIntent
             }
 
-            intent.setPackage(resolveInfos!!.get(0).activityInfo.packageName)
+            intent.setPackage(resolveInfos[0].activityInfo.packageName)
             return intent
         }
 

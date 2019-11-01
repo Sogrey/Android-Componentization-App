@@ -169,10 +169,8 @@ class FragmentUtils {
         ): Fragment {
             for (i in fragments.indices.reversed()) {
                 val fragment = fragments[i]
-                if (fragment != null) {
-                    putArgs(fragment, Args(containerId, showIndex != i, false))
-                    operateFragment(fragmentManager, null, fragment, TYPE_ADD_FRAGMENT)
-                }
+                putArgs(fragment, Args(containerId, showIndex != i, false))
+                operateFragment(fragmentManager, null, fragment, TYPE_ADD_FRAGMENT)
             }
             return fragments[showIndex]
         }
@@ -209,7 +207,7 @@ class FragmentUtils {
             if (fragments.isEmpty()) return
             for (i in fragments.indices.reversed()) {
                 val fragment = fragments[i]
-                if (fragment != null) removeFragment(fragment)
+                removeFragment(fragment)
             }
         }
 
@@ -221,10 +219,8 @@ class FragmentUtils {
             if (fragments.isEmpty()) return
             for (i in fragments.indices.reversed()) {
                 val fragment = fragments[i]
-                if (fragment != null) {
-                    removeAllFragments(fragment.childFragmentManager)
-                    removeFragment(fragment)
-                }
+                removeAllFragments(fragment.childFragmentManager)
+                removeFragment(fragment)
             }
         }
 
@@ -320,7 +316,7 @@ class FragmentUtils {
             if (fragments.isEmpty()) return
             for (i in fragments.indices.reversed()) {
                 val fragment = fragments[i]
-                if (fragment != null) popAllFragments(fragment.childFragmentManager)
+                popAllFragments(fragment.childFragmentManager)
             }
             while (fragmentManager.backStackEntryCount > 0) {
                 fragmentManager.popBackStackImmediate()
@@ -401,7 +397,7 @@ class FragmentUtils {
             if (fragments.isEmpty()) return
             for (i in fragments.indices.reversed()) {
                 val fragment = fragments[i]
-                if (fragment != null) hideFragment(fragment)
+                hideFragment(fragment)
             }
         }
 
@@ -508,7 +504,7 @@ class FragmentUtils {
             val args = destFragment.arguments
 
             val ft = fragmentManager.beginTransaction()
-            if (sharedElements == null || sharedElements.isEmpty()) {
+            if (sharedElements.isEmpty()) {
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
             } else {
                 for (element in sharedElements) {// 添加共享元素动画
@@ -585,14 +581,12 @@ class FragmentUtils {
             if (fragments.isEmpty()) return null
             for (i in fragments.indices.reversed()) {
                 val fragment = fragments[i]
-                if (fragment != null) {
-                    if (isInStack) {
-                        if (fragment.arguments!!.getBoolean(ARGS_IS_ADD_STACK)) {
-                            return fragment
-                        }
-                    } else {
+                if (isInStack) {
+                    if (fragment.arguments!!.getBoolean(ARGS_IS_ADD_STACK)) {
                         return fragment
                     }
+                } else {
+                    return fragment
                 }
             }
             return null
@@ -635,7 +629,7 @@ class FragmentUtils {
             if (fragments.isEmpty()) return parentFragment
             for (i in fragments.indices.reversed()) {
                 val fragment = fragments[i]
-                if (fragment != null && fragment.isResumed && fragment.isVisible && fragment.userVisibleHint) {
+                if (fragment.isResumed && fragment.isVisible && fragment.userVisibleHint) {
                     if (isInStack) {
                         if (fragment.arguments!!.getBoolean(ARGS_IS_ADD_STACK)) {
                             return getTopShowFragmentIsInStack(
@@ -688,7 +682,7 @@ class FragmentUtils {
             isInStack: Boolean
         ): List<Fragment> {
             val fragments = fragmentManager.fragments
-            if (fragments == null || fragments.isEmpty()) return Collections.emptyList()
+            if (fragments.isEmpty()) return Collections.emptyList()
             val result = ArrayList<Fragment>()
             for (i in fragments.indices.reversed()) {
                 val fragment = fragments[i]
@@ -741,7 +735,7 @@ class FragmentUtils {
             isInStack: Boolean
         ): List<FragmentNode> {
             val fragments = fragmentManager.fragments
-            if (fragments == null || fragments.isEmpty()) return Collections.emptyList()
+            if (fragments.isEmpty()) return Collections.emptyList()
             for (i in fragments.indices.reversed()) {
                 val fragment = fragments[i]
                 if (fragment != null) {
@@ -787,7 +781,7 @@ class FragmentUtils {
             var flag = false
             for (i in fragments.indices.reversed()) {
                 val fragment = fragments[i]
-                if (flag && fragment != null) {
+                if (flag) {
                     return fragment
                 }
                 if (fragment === destFragment) {
@@ -841,7 +835,7 @@ class FragmentUtils {
          */
         fun dispatchBackPress(fragmentManager: FragmentManager): Boolean {
             val fragments = fragmentManager.fragments
-            if (fragments == null || fragments.isEmpty()) return false
+            if (fragments.isEmpty()) return false
             for (i in fragments.indices.reversed()) {
                 val fragment = fragments[i]
                 if (fragment != null

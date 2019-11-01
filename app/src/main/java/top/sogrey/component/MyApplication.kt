@@ -1,14 +1,28 @@
 package top.sogrey.component
 
+import android.content.Context
 import com.alibaba.android.arouter.launcher.ARouter
 import top.sogrey.common.BaseApplication
+import androidx.multidex.MultiDex
+import top.sogrey.common.utils.ktx.getAppName
 
-class MyApplication:BaseApplication() {
+
+class MyApplication : BaseApplication() {
+
+    override fun getAppTag(): String = getAppName()
+    override fun isDebug(): Boolean = BuildConfig.DEBUG
+
     override fun onCreate() {
         super.onCreate()
 
-        initARouter()
+//        isDebug(BuildConfig.DEBUG)
 
+        initARouter()
+    }
+
+    override fun attachBaseContext(context: Context) {
+        super.attachBaseContext(context)
+        MultiDex.install(this)
     }
 
     private fun initARouter() {

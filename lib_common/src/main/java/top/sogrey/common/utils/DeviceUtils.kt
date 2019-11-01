@@ -178,7 +178,7 @@ class DeviceUtils {
         }
 
         private fun isAddressNotInExcepts(address: String, vararg excepts: String): Boolean {
-            if (excepts == null || excepts.isEmpty()) {
+            if (excepts.isEmpty()) {
                 return "02:00:00:00:00:00" != address
             }
             for (filter in excepts) {
@@ -194,10 +194,8 @@ class DeviceUtils {
             try {
                 val wifi =
                     AppUtils.getApp().applicationContext.getSystemService(WIFI_SERVICE) as WifiManager
-                if (wifi != null) {
-                    val info = wifi.connectionInfo
-                    if (info != null) return info.macAddress
-                }
+                val info = wifi.connectionInfo
+                if (info != null) return info.macAddress
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -274,15 +272,13 @@ class DeviceUtils {
 
         private fun getMacAddressByFile(): String {
             var result = ShellUtils.execCmd("getprop wifi.interface", false)
-            if (result.result === 0) {
+            if (result.result == 0) {
                 val name = result.successMsg
-                if (name != null) {
-                    result = ShellUtils.execCmd("cat /sys/class/net/$name/address", false)
-                    if (result.result === 0) {
-                        val address = result.successMsg
-                        if (address != null && address.isNotEmpty()) {
-                            return address
-                        }
+                result = ShellUtils.execCmd("cat /sys/class/net/$name/address", false)
+                if (result.result == 0) {
+                    val address = result.successMsg
+                    if (address.isNotEmpty()) {
+                        return address
                     }
                 }
             }
@@ -361,11 +357,9 @@ class DeviceUtils {
 
             var operatorName = ""
             val tm = AppUtils.getApp().getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-            if (tm != null) {
-                val name = tm.networkOperatorName
-                if (name != null) {
-                    operatorName = name
-                }
+            val name = tm.networkOperatorName
+            if (name != null) {
+                operatorName = name
             }
             val checkOperatorName = operatorName.toLowerCase(Locale.US) == "android"
             if (checkOperatorName) return true

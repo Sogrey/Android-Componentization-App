@@ -336,8 +336,8 @@ class SnackbarUtils {
      * @param alpha
      * @return
      */
-    fun alpha(alpha: Float): SnackbarUtils {
-        var alpha = alpha
+    fun alpha(alphaFloat: Float): SnackbarUtils {
+        var alpha = alphaFloat
         if (getSnackbar() != null) {
             alpha = if (alpha >= 1.0f) 1.0f else if (alpha <= 0.0f) 0.0f else alpha
             getSnackbar()!!.view.alpha = alpha
@@ -634,8 +634,8 @@ class SnackbarUtils {
      * @param radius    圆角半径
      * @return
      */
-    fun radius(radius: Float): SnackbarUtils {
-        var radius = radius
+    fun radius(radiusFloat: Float): SnackbarUtils {
+        var radius = radiusFloat
         if (getSnackbar() != null) {
             //将要设置给mSnackbar的背景
             val background = getRadiusDrawable(getSnackbar()!!.view.background)
@@ -655,9 +655,9 @@ class SnackbarUtils {
      * @param strokeColor
      * @return
      */
-    fun radius(radius: Int, strokeWidth: Int, @ColorInt strokeColor: Int): SnackbarUtils {
-        var radius = radius
-        var strokeWidth = strokeWidth
+    fun radius(radiusInt: Int, strokeWidthInt: Int, @ColorInt strokeColor: Int): SnackbarUtils {
+        var radius = radiusInt
+        var strokeWidth = strokeWidthInt
         if (getSnackbar() != null) {
             //将要设置给mSnackbar的背景
             val background = getRadiusDrawable(getSnackbar()!!.view.background)
@@ -713,11 +713,11 @@ class SnackbarUtils {
     fun above(
         targetView: View,
         contentViewTop: Int,
-        marginLeft: Int,
-        marginRight: Int
+        marginLeftInt: Int,
+        marginRightInt: Int
     ): SnackbarUtils {
-        var marginLeft = marginLeft
-        var marginRight = marginRight
+        var marginLeft = marginLeftInt
+        var marginRight = marginRightInt
         if (getSnackbar() != null) {
             marginLeft = if (marginLeft <= 0) 0 else marginLeft
             marginRight = if (marginRight <= 0) 0 else marginRight
@@ -746,11 +746,11 @@ class SnackbarUtils {
     fun aboveCoordinatorLayout(
         targetView: View,
         contentViewTop: Int,
-        marginLeft: Int,
-        marginRight: Int
+        marginLeftInt: Int,
+        marginRightInt: Int
     ): SnackbarUtils {
-        var marginLeft = marginLeft
-        var marginRight = marginRight
+        var marginLeft = marginLeftInt
+        var marginRight = marginRightInt
         if (getSnackbar() != null) {
             marginLeft = if (marginLeft <= 0) 0 else marginLeft
             marginRight = if (marginRight <= 0) 0 else marginRight
@@ -787,11 +787,11 @@ class SnackbarUtils {
     fun bellow(
         targetView: View,
         contentViewTop: Int,
-        marginLeft: Int,
-        marginRight: Int
+        marginLeftInt: Int,
+        marginRightInt: Int
     ): SnackbarUtils {
-        var marginLeft = marginLeft
-        var marginRight = marginRight
+        var marginLeft = marginLeftInt
+        var marginRight = marginRightInt
         if (getSnackbar() != null) {
             marginLeft = if (marginLeft <= 0) 0 else marginLeft
             marginRight = if (marginRight <= 0) 0 else marginRight
@@ -834,11 +834,11 @@ class SnackbarUtils {
     fun bellowCoordinatorLayout(
         targetView: View,
         contentViewTop: Int,
-        marginLeft: Int,
-        marginRight: Int
+        marginLeftInt: Int,
+        marginRightInt: Int
     ): SnackbarUtils {
-        var marginLeft = marginLeft
-        var marginRight = marginRight
+        var marginLeft = marginLeftInt
+        var marginRight = marginRightInt
         if (getSnackbar() != null) {
             marginLeft = if (marginLeft <= 0) 0 else marginLeft
             marginRight = if (marginRight <= 0) 0 else marginRight

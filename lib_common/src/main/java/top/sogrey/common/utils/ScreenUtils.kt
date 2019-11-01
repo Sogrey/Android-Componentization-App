@@ -170,7 +170,7 @@ class ScreenUtils {
          * @return `true`: yes<br></br>`false`: no
          */
         fun isLandscape(): Boolean {
-            return AppUtils.getApp().resources.configuration.orientation === Configuration.ORIENTATION_LANDSCAPE
+            return AppUtils.getApp().resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
         }
 
         /**
@@ -179,7 +179,7 @@ class ScreenUtils {
          * @return `true`: yes<br></br>`false`: no
          */
         fun isPortrait(): Boolean {
-            return AppUtils.getApp().resources.configuration.orientation === Configuration.ORIENTATION_PORTRAIT
+            return AppUtils.getApp().resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT
         }
 
         /**

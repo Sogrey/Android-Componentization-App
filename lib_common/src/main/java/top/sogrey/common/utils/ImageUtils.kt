@@ -1198,8 +1198,8 @@ class ImageUtils {
          * @param recycle True to recycle the source of bitmap, false otherwise.
          * @return the blur bitmap
          */
-        fun stackBlur(src: Bitmap, radius: Int, recycle: Boolean): Bitmap {
-            var radius = radius
+        fun stackBlur(src: Bitmap, radiusInt: Int, recycle: Boolean): Bitmap {
+            var radius = radiusInt
             val ret = if (recycle) src else src.copy(src.config, true)
             if (radius < 1) {
                 radius = 1
@@ -1531,7 +1531,7 @@ class ImageUtils {
         fun isImage(file: File?): Boolean {
             return if (file == null || !file.exists()) {
                 false
-            } else isImage(file!!.path)
+            } else isImage(file.path)
         }
 
         /**

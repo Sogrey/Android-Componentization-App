@@ -226,7 +226,6 @@ class ShellUtils {
                 process = Runtime.getRuntime().exec(if (isRooted) "su" else "sh")
                 os = DataOutputStream(process!!.outputStream)
                 for (command in commands) {
-                    if (command == null) continue
                     os.write(command.toByteArray())
                     os.writeBytes(LINE_SEP!!)
                     os.flush()
@@ -266,25 +265,19 @@ class ShellUtils {
                 e.printStackTrace()
             } finally {
                 try {
-                    if (os != null) {
-                        os!!.close()
-                    }
+                    os?.close()
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }
 
                 try {
-                    if (successResult != null) {
-                        successResult!!.close()
-                    }
+                    successResult?.close()
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }
 
                 try {
-                    if (errorResult != null) {
-                        errorResult!!.close()
-                    }
+                    errorResult?.close()
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }

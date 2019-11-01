@@ -322,9 +322,9 @@ class IntentKtUtils {
             imagePaths: LinkedList<String>?,
             isNewTask: Boolean
         ): Intent? {
-            if (imagePaths == null || imagePaths!!.isEmpty()) return null
+            if (imagePaths == null || imagePaths.isEmpty()) return null
             val files = ArrayList<File>()
-            for (imagePath in imagePaths!!) {
+            for (imagePath in imagePaths) {
                 files.add(File(imagePath))
             }
             return getShareImageIntent(content, files, isNewTask)

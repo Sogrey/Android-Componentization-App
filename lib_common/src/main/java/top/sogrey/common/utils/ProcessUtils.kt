@@ -97,15 +97,13 @@ class ProcessUtils {
                     val usageStatsManager = AppUtils.getApp()
                         .getSystemService(Context.USAGE_STATS_SERVICE) as UsageStatsManager
                     var usageStatsList: List<UsageStats>? = null
-                    if (usageStatsManager != null) {
-                        val endTime = System.currentTimeMillis()
-                        val beginTime = endTime - 86400000 * 7
-                        usageStatsList = usageStatsManager
-                            .queryUsageStats(
-                                UsageStatsManager.INTERVAL_BEST,
-                                beginTime, endTime
-                            )
-                    }
+                    val endTime = System.currentTimeMillis()
+                    val beginTime = endTime - 86400000 * 7
+                    usageStatsList = usageStatsManager
+                        .queryUsageStats(
+                            UsageStatsManager.INTERVAL_BEST,
+                            beginTime, endTime
+                        )
                     if (usageStatsList == null || usageStatsList.isEmpty()) return ""
                     var recentStats: UsageStats? = null
                     for (usageStats in usageStatsList) {

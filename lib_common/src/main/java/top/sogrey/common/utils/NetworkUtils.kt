@@ -243,9 +243,7 @@ class NetworkUtils {
                 }
                 @SuppressLint("PrivateApi")
                 val getMobileDataEnabledMethod = tm.javaClass.getDeclaredMethod("getDataEnabled")
-                if (null != getMobileDataEnabledMethod) {
-                    return getMobileDataEnabledMethod.invoke(tm) as Boolean
-                }
+                return getMobileDataEnabledMethod.invoke(tm) as Boolean
             } catch (e: Exception) {
                 Log.e("NetworkUtils", "getMobileDataEnabled: ", e)
             }

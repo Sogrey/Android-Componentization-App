@@ -27,6 +27,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -52,6 +56,26 @@ dependencies {
     implementation rootProject.ext.dependencies["glide"]
 //    kapt rootProject.ext.dependencies["glide-compiler"]
     implementation rootProject.ext.dependencies["glide-transformations"]
+
+    implementation rootProject.ext.dependencies["picasso"]
+
+    //网络框架
+    implementation rootProject.ext.dependencies["retrofit"]
+    implementation rootProject.ext.dependencies["retrofit-converter-gson"]
+    implementation rootProject.ext.dependencies["retrofit-adapter-rxjava"]
+    implementation rootProject.ext.dependencies["converter-scalars"]
+
+    implementation rootProject.ext.dependencies["okhttp3"]
+    implementation rootProject.ext.dependencies["gson"]
+
+    implementation rootProject.ext.dependencies["rxjava"]
+    implementation rootProject.ext.dependencies["rxandroid"]
+    implementation rootProject.ext.dependencies["rxkotlin"]
+
+    //转换器，请求结果转换成Model
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.2'
+    //配合Rxjava 使用
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
 
     //test
     testImplementation rootProject.ext.dependencies["junit"]

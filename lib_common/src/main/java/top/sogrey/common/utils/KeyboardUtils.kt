@@ -98,7 +98,6 @@ class KeyboardUtils {
         fun hideSoftInput(view: View) {
             val imm =
                 AppUtils.getApp().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                    ?: return
             imm.hideSoftInputFromWindow(view.windowToken, 0)
         }
 
@@ -108,7 +107,6 @@ class KeyboardUtils {
         fun toggleSoftInput() {
             val imm =
                 AppUtils.getApp().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                    ?: return
             imm.toggleSoftInput(0, 0)
         }
 
@@ -125,7 +123,7 @@ class KeyboardUtils {
         }
 
         private fun getDecorViewInvisibleHeight(window: Window): Int {
-            val decorView = window.decorView ?: return 0
+            val decorView = window.decorView
             val outRect = Rect()
             decorView.getWindowVisibleDisplayFrame(outRect)
             LogKtUtils.d(
@@ -249,13 +247,12 @@ class KeyboardUtils {
         fun fixSoftInputLeaks(window: Window) {
             val imm =
                 AppUtils.getApp().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                    ?: return
             val leakViews =
                 arrayOf("mLastSrvView", "mCurRootView", "mServedView", "mNextServedView")
             for (leakView in leakViews) {
                 try {
                     val leakViewField =
-                        InputMethodManager::class.java.getDeclaredField(leakView) ?: continue
+                        InputMethodManager::class.java.getDeclaredField(leakView)
                     if (!leakViewField.isAccessible) {
                         leakViewField.isAccessible = true
                     }
@@ -328,15 +325,15 @@ class KeyboardUtils {
         }
 
         private fun getActivityByContext(context: Context): Activity? {
-            var context = context
-            if (context is Activity) {
-                return context
+            var contextVar = context
+            if (contextVar is Activity) {
+                return contextVar
             }
-            while (context is ContextWrapper) {
-                if (context is Activity) {
-                    return context
+            while (contextVar is ContextWrapper) {
+                if (contextVar is Activity) {
+                    return contextVar
                 }
-                context = context.baseContext
+                contextVar = contextVar.baseContext
             }
             return null
         }

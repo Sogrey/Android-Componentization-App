@@ -138,18 +138,6 @@ class SpannableStringUtils {
         private const val mTypeImage = 1
         private const val mTypeSpace = 2
 
-//        private fun SpannableStringUtils(textView: TextView):SpannableStringUtils{
-//            this()
-//            mTextView = textView
-//        }
-
-//        fun SpannableStringUtils(): ??? {
-//            mBuilder = SerializableSpannableStringBuilder()
-//            mText = ""
-//            mType = -1
-//            setDefault()
-//        }
-
         init {
             mBuilder = SerializableSpannableStringBuilder()
             mText = ""
@@ -157,7 +145,7 @@ class SpannableStringUtils {
             setDefault()
         }
 
-        fun withTextView(textView: TextView): Companion {
+        private fun withTextView(textView: TextView): Companion {
             mTextView = textView
             return this
         }
@@ -974,9 +962,9 @@ class SpannableStringUtils {
                 end: Int,
                 p4: FontMetricsInt?
             ): Int {
-                var text = text
-                text = text!!.subSequence(start, end)
-                return paint.measureText(text.toString()).toInt()
+                var textVar = text
+                textVar = textVar!!.subSequence(start, end)
+                return paint.measureText(textVar.toString()).toInt()
             }
 
             override fun draw(
@@ -990,8 +978,8 @@ class SpannableStringUtils {
                 bottom: Int,
                 paint: Paint
             ) {
-                var text = text
-                text = text.subSequence(start, end)
+                var textVar = text
+                textVar = textVar.subSequence(start, end)
                 val fm = paint.fontMetricsInt
                 //            int need = height - (v + fm.descent - fm.ascent - spanstartv);
                 //            if (need > 0) {
@@ -1017,7 +1005,7 @@ class SpannableStringUtils {
                 //            }
 
                 canvas.drawText(
-                    text.toString(),
+                    textVar.toString(),
                     x,
                     (y - ((y + fm.descent + y + fm.ascent) / 2 - (bottom + top) / 2)).toFloat(),
                     paint
@@ -1177,8 +1165,7 @@ class SpannableStringUtils {
             ) {
                 if ((text as Spanned).getSpanStart(this) == start) {
                     val style = p.style
-                    var oldColor = 0
-                    oldColor = p.color
+                    var oldColor: Int = p.color
                     p.color = color
                     p.style = Paint.Style.FILL
                     if (c.isHardwareAccelerated) {
@@ -1258,7 +1245,7 @@ class SpannableStringUtils {
                                     0, 0, drawable.intrinsicWidth, drawable.intrinsicHeight
                                 )
                                 if (`is` != null) {
-                                    `is`!!.close()
+                                    `is`.close()
                                 }
                             } catch (e: Exception) {
                                 logE(
@@ -1316,7 +1303,7 @@ class SpannableStringUtils {
                     val wr = mDrawableRef
                     var d: Drawable? = null
                     if (wr != null) {
-                        d = wr!!.get()
+                        d = wr.get()
                     }
                     if (d == null) {
                         d = drawable

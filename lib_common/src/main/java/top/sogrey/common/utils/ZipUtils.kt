@@ -10,6 +10,7 @@ import java.util.zip.ZipOutputStream
 /**
  * zip 解压缩相关
  */
+@Suppress("UNREACHABLE_CODE")
 class ZipUtils {
     constructor(){
         throw UnsupportedOperationException(this.javaClass.simpleName + " cannot be instantiated")
@@ -102,8 +103,8 @@ class ZipUtils {
                 return true
             } finally {
                 if (zos != null) {
-                    zos!!.finish()
-                    zos!!.close()
+                    zos.finish()
+                    zos.close()
                 }
             }
         }
@@ -186,11 +187,11 @@ class ZipUtils {
         @Throws(IOException::class)
         private fun zipFile(
             srcFile: File,
-            rootPath: String,
+            rootPathStr: String,
             zos: ZipOutputStream,
             comment: String?
         ): Boolean {
-            var rootPath = rootPath
+            var rootPath = rootPathStr
             rootPath =
                 rootPath + (if (isSpace(rootPath)) "" else File.separator) + srcFile.name
             if (srcFile.isDirectory) {

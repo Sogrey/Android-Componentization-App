@@ -18,16 +18,20 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
+import android.util.Log
 import android.view.WindowManager
 import androidx.core.content.FileProvider
 import java.io.File
 import java.lang.reflect.InvocationTargetException
 import java.util.*
+import kotlin.system.exitProcess
 
 class AppUtils {
-    constructor(){
-        throw UnsupportedOperationException(this.javaClass.simpleName + " cannot be instantiated")}
-    companion object{
+    constructor() {
+        throw UnsupportedOperationException(this.javaClass.simpleName + " cannot be instantiated")
+    }
+
+    companion object {
 
         private val ACTIVITY_LIFECYCLE = ActivityLifecycleImpl()
         @SuppressLint("StaticFieldLeak")
@@ -184,12 +188,13 @@ class AppUtils {
                         val activities =
                             mActivityListField.get(currentActivityThreadMethod) as Map<*, *>
                         for (activityRecord in activities.values) {
-                            if(activityRecord!=null){
+                            if (activityRecord != null) {
                                 val activityRecordClass = activityRecord.javaClass
                                 val pausedField = activityRecordClass.getDeclaredField("paused")
                                 pausedField.isAccessible = true
                                 if (!pausedField.getBoolean(activityRecord)) {
-                                    val activityField = activityRecordClass.getDeclaredField("activity")
+                                    val activityField =
+                                        activityRecordClass.getDeclaredField("activity")
                                     activityField.isAccessible = true
                                     return activityField.get(activityRecord) as Activity
                                 }
@@ -665,6 +670,34 @@ class AppUtils {
 
             }
             return ""
+        }
+
+        /**
+         * Relaunch the application.
+         */
+        fun relaunchApp() {
+            relaunchApp(false)
+        }
+
+        /**
+         * Relaunch the application.
+         *
+         * @param isKillProcess True to kill the process, false otherwise.
+         */
+        fun relaunchApp(isKillProcess: Boolean) {
+            var intent = getLaunchAppIntent(getApp().packageName, true)
+            if (intent == null) {
+                logE("AppUtils", "Didn't exist launcher activity.")
+                return
+            }
+            intent.addFlags(
+                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            )
+
+            getApp().startActivity(intent); if (!isKillProcess) return android.os.Process.killProcess(
+                android.os.Process.myPid()
+            )
+            exitProcess(0)
         }
     }
 }

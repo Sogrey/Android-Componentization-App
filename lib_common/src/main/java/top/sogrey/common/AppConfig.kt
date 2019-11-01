@@ -1,7 +1,6 @@
 package top.sogrey.common
 
 class AppConfig {
-    constructor() {}
 
     companion object {
         /**
@@ -12,12 +11,12 @@ class AppConfig {
         /**
          * 应用tag
          */
-        val APP_TAG = "AppTag"
+        var APP_TAG = "AppTag"
 
         //SharedPreferences
         /**
          * SharedPreferences name
          */
-        val SP_NAME = "AppName"
+        var SP_NAME = "AppName"
     }
 }
