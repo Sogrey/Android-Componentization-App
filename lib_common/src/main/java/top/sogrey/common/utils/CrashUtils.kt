@@ -65,7 +65,6 @@ class CrashUtils {
                         e.printStackTrace()
                     }
 
-
                     if (e == null) {
                         if (DEFAULT_UNCAUGHT_EXCEPTION_HANDLER != null) {
                             DEFAULT_UNCAUGHT_EXCEPTION_HANDLER!!.uncaughtException(t, null)
