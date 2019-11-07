@@ -9,7 +9,7 @@ package top.sogrey.common.utils
 
 class CleanUtils {
     constructor() {
-        throw UnsupportedOperationException(this.javaClass.simpleName + " cannot be instantiated")
+        throw UnsupportedOperationException("${this.javaClass.simpleName} cannot be instantiated")
     }
 
     companion object {

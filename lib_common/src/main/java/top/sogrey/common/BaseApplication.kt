@@ -5,6 +5,7 @@ import android.app.Application
 import android.os.Bundle
 import top.sogrey.common.utils.AppUtils
 import top.sogrey.common.utils.CrashUtils
+import top.sogrey.common.utils.KLog
 import top.sogrey.common.utils.logE
 
 
@@ -49,6 +50,11 @@ abstract class BaseApplication : Application() {
     private fun initConfig() {
         AppConfig.DEBUG = BuildConfig.DEBUG && isDebug()
         AppConfig.APP_TAG = getAppTag()
+
+        KLog.getSettings().setLogEnable(AppConfig.DEBUG)
+        KLog.getSettings().setBorderEnable(true)
+        KLog.getSettings().setInfoEnable(true)
+        KLog.getSettings().setLogEnable(AppConfig.DEBUG)
     }
 
     protected abstract fun getAppTag(): String
