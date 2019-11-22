@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BaseDialog" parent="@android:style/Theme.Dialog">
+        <!--  去掉弹窗的Window边框  -->
+        <item name="android:windowFrame">@null</item>
+        <!--  去掉弹窗的标题  -->
+        <item name="android:windowNoTitle">true</item>
+        <!--  设置弹窗的Window背景透明  -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--  设置弹窗浮现在Activity之上  -->
+        <item name="android:windowIsFloating">true</item>
+        <!--  开启弹窗阴暗背景  -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!--  设置弹窗背景的阴暗程度  -->
+        <item name="android:backgroundDimAmount">0.6</item>
+        <!--  设置全屏  -->
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>

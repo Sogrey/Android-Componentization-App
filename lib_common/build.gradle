@@ -24,8 +24,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
     }
 
     kotlinOptions {
@@ -34,52 +34,52 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation rootProject.ext.dependencies["appcompat"]
-    implementation rootProject.ext.dependencies["recyclerview"]
+    api rootProject.ext.dependencies["appcompat"]
+    api rootProject.ext.dependencies["recyclerview"]
 
-    implementation rootProject.ext.dependencies["google.android.material"]
+    api rootProject.ext.dependencies["google.android.material"]
 
     //kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation "org.jetbrains.anko:anko-common:$anko_version"
-    implementation "org.jetbrains.anko:anko-sqlite:$anko_version"
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1'
-    implementation rootProject.ext.dependencies["core-ktx"]
+    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api "org.jetbrains.anko:anko-common:$anko_version"
+    api "org.jetbrains.anko:anko-sqlite:$anko_version"
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1'
+    api rootProject.ext.dependencies["core-ktx"]
 
     //ARoute
     api rootProject.ext.dependencies["arouter-api"]
 
     //Glide
-    implementation rootProject.ext.dependencies["glide"]
+    api rootProject.ext.dependencies["glide"]
 //    kapt rootProject.ext.dependencies["glide-compiler"]
-    implementation rootProject.ext.dependencies["glide-transformations"]
+    api rootProject.ext.dependencies["glide-transformations"]
 
-    implementation rootProject.ext.dependencies["picasso"]
+    api rootProject.ext.dependencies["picasso"]
 
     //网络框架
-    implementation rootProject.ext.dependencies["retrofit"]
-    implementation rootProject.ext.dependencies["retrofit-converter-gson"]
-    implementation rootProject.ext.dependencies["retrofit-adapter-rxjava"]
-    implementation rootProject.ext.dependencies["converter-scalars"]
+    api rootProject.ext.dependencies["retrofit"]
+    api rootProject.ext.dependencies["retrofit-converter-gson"]
+    api rootProject.ext.dependencies["retrofit-adapter-rxjava"]
+    api rootProject.ext.dependencies["converter-scalars"]
 
-    implementation rootProject.ext.dependencies["okhttp3"]
-    implementation rootProject.ext.dependencies["gson"]
+    api rootProject.ext.dependencies["okhttp3"]
+    api rootProject.ext.dependencies["gson"]
 
-    implementation rootProject.ext.dependencies["rxjava"]
-    implementation rootProject.ext.dependencies["rxandroid"]
-    implementation rootProject.ext.dependencies["rxkotlin"]
+    api rootProject.ext.dependencies["rxjava"]
+    api rootProject.ext.dependencies["rxandroid"]
+    api rootProject.ext.dependencies["rxkotlin"]
 
     //转换器，请求结果转换成Model
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.2'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.6.2'
     //配合Rxjava 使用
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.2.2'
+    api 'com.squareup.okhttp3:logging-interceptor:4.2.2'
 
     //test
-    testImplementation rootProject.ext.dependencies["junit"]
-    androidTestImplementation rootProject.ext.dependencies["ext.junit"]
-    androidTestImplementation rootProject.ext.dependencies["espresso"]
+//    testImplementation rootProject.ext.dependencies["junit"]
+//    androidTestImplementation rootProject.ext.dependencies["ext.junit"]
+//    androidTestImplementation rootProject.ext.dependencies["espresso"]
 
 }
