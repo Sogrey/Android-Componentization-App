@@ -1,4 +1,5 @@
 ext {
+//    isDebug : false
     //有重用的地方写在这里面，保证代码一致
     android = [
             applicationId    : "top.sogrey.component",
