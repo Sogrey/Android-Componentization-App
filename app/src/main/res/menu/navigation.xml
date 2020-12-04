@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="MissingDefaultResource">
+    <item
+        android:id="@+id/navigation_a"
+        android:icon="@drawable/ic_home"
+        android:title="组件A" />
+    <item
+        android:id="@+id/navigation_b"
+        android:icon="@drawable/ic_business_center"
+        android:title="组件B" />
+    <item
+        android:id="@+id/navigation_c"
+        android:icon="@drawable/ic_assistant_photo"
+        android:title="组件C" />
+    <item
+        android:id="@+id/navigation_d"
+        android:icon="@drawable/ic_directions_run"
+        android:title="组件C" />
+</menu>

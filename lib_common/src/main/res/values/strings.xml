@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">lib_common</string>
-    <string name="txt_bad_file">文件不存在或已损坏</string>
-    <string name="txt_no_match_application">sorry,您的设备未安装相关软件，请先下载相关软件！</string>
-    <string name="txt_no_match_application2">sorry,您的设备未安装相关软件，\n无法打开[%s],\n请先下载相关软件！</string>
-</resources>
