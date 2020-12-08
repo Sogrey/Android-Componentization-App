@@ -7,14 +7,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import top.sogrey.module_d.fragment.ModuleAFragment
-import top.sogrey.module_d.fragment.ModuleBFragment
-import top.sogrey.module_d.fragment.ModuleCFragment
-
+import top.sogrey.module_a.fragment.ModuleAFragment
+import top.sogrey.module_b.fragment.ModuleBFragment
+import top.sogrey.module_c.fragment.ModuleCFragment
+import top.sogrey.module_d.fragment.ModuleDFragment
 
 class MainActivity : AppCompatActivity() , BottomNavigationView.OnNavigationItemSelectedListener{
     //定义碎片集合
-    private val fragments: Array<Fragment?> = arrayOfNulls<Fragment>(3)
+    private val fragments: Array<Fragment?> = arrayOfNulls<Fragment>(4)
 
     //当前显示的fragment的索引位置
     private var currentIndex = 0
@@ -78,7 +78,7 @@ class MainActivity : AppCompatActivity() , BottomNavigationView.OnNavigationItem
                 if (currentIndex == 3) return true //如果已经是当前的fragment，不用切换
                 val transition3: FragmentTransaction = supportFragmentManager.beginTransaction()
                 if (fragments[3] == null) {
-                    fragments[3] = ModuleCFragment()
+                    fragments[3] = ModuleDFragment()
                     fragments[3]?.let { transition3.add(R.id.content, it, "moduled") }
                 }
                 hideAndShow(3, transition3)

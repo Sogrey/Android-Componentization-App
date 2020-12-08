@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="top.sogrey.module_d">
+    package="top.sogrey.module_b">
 
     <!-- To access Google+ APIs: -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application>
-        <activity android:name="top.sogrey.module_d.MainActivity" />
+        <activity android:name="top.sogrey.module_b.MainActivity" />
     </application>
 
 </manifest>

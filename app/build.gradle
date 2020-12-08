@@ -23,6 +23,8 @@ android {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
+
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -63,4 +65,5 @@ dependencies {
     implementation project(':module_a')
     implementation project(':module_b')
     implementation project(':module_c')
+    implementation project(':module_d')
 }

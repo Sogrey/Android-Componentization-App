@@ -1,4 +1,4 @@
-package top.sogrey.module_d
+package top.sogrey.module_a
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

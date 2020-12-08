@@ -1,11 +1,11 @@
-package top.sogrey.module_d.fragment
+package top.sogrey.module_a.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import top.sogrey.module_d.R
+import top.sogrey.module_a.R
 
 
 /**
